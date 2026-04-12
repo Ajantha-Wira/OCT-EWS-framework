@@ -1,0 +1,12 @@
+{
+    "terminal.integrated.defaultProfile.windows": "Command Prompt",
+    "terminal.integrated.profiles.windows": {
+        "Command Prompt": {
+            "path": "cmd.exe",
+            "args": ["/K", "C:\\Users\\Ajant\\anaconda3\\Scripts\\activate.bat ews_system"]
+        }
+    },
+    "python.defaultInterpreterPath": "C:\\Users\\Ajant\\anaconda3\\envs\\ews_system\\python.exe",
+    "python-envs.defaultEnvManager": "ms-python.python:conda",
+    "python-envs.defaultPackageManager": "ms-python.python:conda"
+}
