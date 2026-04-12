@@ -27,6 +27,7 @@ The system consists of three sequential layers:
 
 ## Repository Structure
 
+```
 OCT_EWS/
 ├── config/          # Phase configuration and defaults
 ├── src/             # Core modules
@@ -40,7 +41,7 @@ OCT_EWS/
 ├── notebooks/       # Demonstration and analysis notebooks
 ├── tests/           # Test suite
 └── main.py
-
+```
 ## Requirements
 
 - Python 3.10
