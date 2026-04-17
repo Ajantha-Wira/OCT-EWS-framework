@@ -69,8 +69,7 @@ on the leakage-corrected preprocessing procedure.
 
 If you use this code in your research, please cite:
 
-Wirasinghe, A. (2026) An Embedding-Based Post-Classification Safety
-Layer for Identifying Unsafe Normal Predictions in OCT Screening.
+Wirasinghe, A. (2026) An embedding-based post-classification safety layer for detecting unsafe normal predictions in automated OCT screening.
 [Under review]
 
 ## Licence
