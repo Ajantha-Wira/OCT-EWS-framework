@@ -1,0 +1,4 @@
+Metric,Threshold (90th pct),Flagged (of 241),True NORMAL flagged,Unique to metric,Corr vs Mahalanobis
+Mahalanobis,12.5426,5,5,4,1.0
+Euclidean,1.465499997138977,23,23,22,0.3494
+Cosine,0.03720000013709068,3,3,1,0.2411
