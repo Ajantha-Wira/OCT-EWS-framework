@@ -573,9 +573,10 @@ class ReportGenerator:
 
         n_classes = len(cosine_cols)
         fig, axes = plt.subplots(
-            1, n_classes + 1,
-            figsize=(5 * (n_classes + 1), 5)
+            2, 2,
+            figsize=(14, 12)
         )
+        axes = axes.flatten()
 
         # Per-class histograms
         for ax, col in zip(axes[:n_classes], cosine_cols):
@@ -606,7 +607,7 @@ class ReportGenerator:
             ax.set_xlabel(f"Cosine to {cls}")
             ax.set_ylabel("Count")
             ax.set_title(f"{cls} Direction")
-            ax.legend(fontsize=8)
+            ax.legend(fontsize=16)
             ax.set_xlim(-1, 1)
 
         # Strongest direction bar chart
@@ -631,7 +632,7 @@ class ReportGenerator:
                     bar.get_x() + bar.get_width() / 2,
                     bar.get_height() + 0.2,
                     str(val),
-                    ha="center", va="bottom", fontsize=10
+                    ha="center", va="bottom", fontsize=14
                 )
             ax_last.set_ylabel("Count")
             ax_last.set_title("Strongest Direction\n(flagged NORMAL)")
@@ -647,18 +648,11 @@ class ReportGenerator:
             fontsize=11, y=1.02
         )
 
-        if self.config.is_phase_1():
-            fig.text(
-                0.5, -0.04,
-                "PRELIMINARY RESEARCH OUTPUT — "
-                "Not for clinical decision making",
-                ha="center", fontsize=8,
-                color="red", style="italic"
-            )
+
 
         plt.tight_layout()
         filepath = self.output_dir / filename
-        plt.savefig(filepath, dpi=150, bbox_inches="tight")
+        plt.savefig(filepath, dpi=720, bbox_inches="tight")
         plt.close()
         self._log(f"  Saved: {filename}")
         return filepath
@@ -692,12 +686,12 @@ class ReportGenerator:
         """
         self._log("\n  Plot 1: Mahalanobis Score Histogram")
 
-        fig, axes = plt.subplots(1, 2, figsize=(14, 5))
+        fig, axes = plt.subplots(1, 2, figsize=(14, 8))
         fig.suptitle(
             f"Mahalanobis Score Distribution\n"
             f"Ref: {self.reference_model_id} | "
             f"Phase: {self.config.phase}",
-            fontsize=11, y=1.02
+            fontsize=22, y=1.02
         )
 
         scores = scored_df[COL_MAHALANOBIS].values
@@ -717,7 +711,7 @@ class ReportGenerator:
                     scores[mask], bins=50, alpha=0.5,
                     label=label, color=color, density=True
                 )
-            ax1.legend(fontsize=9)
+            ax1.legend(fontsize=16)
         else:
             ax1.hist(scores, bins=50, color="#4169E1",
                      alpha=0.7, density=True)
@@ -741,7 +735,7 @@ class ReportGenerator:
                         color=col, linestyle="--",
                         linewidth=1.5, label=lbl
                     )
-            ax1.legend(fontsize=8)
+            ax1.legend(fontsize=16)
 
         ax1.set_xlabel("Mahalanobis Distance")
         ax1.set_ylabel("Density")
@@ -771,25 +765,17 @@ class ReportGenerator:
                         color=col, linestyle="--",
                         linewidth=1.5, label=lbl
                     )
-            ax2.legend(fontsize=8)
+            ax2.legend(fontsize=16)
 
         ax2.set_xlabel("Mahalanobis Distance")
         ax2.set_ylabel("Density")
         ax2.set_title("NORMAL Cases Only (zoomed)")
 
         # Add disclaimer if Phase 1
-        if self.config.is_phase_1():
-            fig.text(
-                0.5, -0.04,
-                "PRELIMINARY RESEARCH OUTPUT — "
-                "Not for clinical decision making",
-                ha="center", fontsize=8,
-                color="red", style="italic"
-            )
 
         plt.tight_layout()
         filepath = self.output_dir / filename
-        plt.savefig(filepath, dpi=150, bbox_inches="tight")
+        plt.savefig(filepath, dpi=720, bbox_inches="tight")
         plt.close()
         self._log(f"  Saved: {filename}")
         return filepath
@@ -842,7 +828,7 @@ class ReportGenerator:
                 index=["All cases"]
             )
 
-        fig, ax = plt.subplots(figsize=(12, 5))
+        fig, ax = plt.subplots(figsize=(12, 8))
 
         x = np.arange(len(plot_df.index))
         width = 0.18
@@ -865,11 +851,11 @@ class ReportGenerator:
                         bar.get_height() + 1,
                         str(int(val)),
                         ha="center", va="bottom",
-                        fontsize=8
+                        fontsize=14
                     )
 
         ax.set_xticks(x)
-        ax.set_xticklabels(plot_df.index, fontsize=10)
+        ax.set_xticklabels(plot_df.index, fontsize=14)
         ax.set_ylabel("Case Count")
         ax.set_title(
             f"Layer A Band Distribution by True Label\n"
@@ -881,18 +867,10 @@ class ReportGenerator:
             loc="upper left", fontsize=9
         )
 
-        if self.config.is_phase_1():
-            fig.text(
-                0.5, -0.04,
-                "PRELIMINARY RESEARCH OUTPUT — "
-                "Not for clinical decision making",
-                ha="center", fontsize=8,
-                color="red", style="italic"
-            )
 
         plt.tight_layout()
         filepath = self.output_dir / filename
-        plt.savefig(filepath, dpi=150, bbox_inches="tight")
+        plt.savefig(filepath, dpi=720, bbox_inches="tight")
         plt.close()
         self._log(f"  Saved: {filename}")
         return filepath
@@ -933,8 +911,9 @@ class ReportGenerator:
 
         n_classes = len(cosine_cols)
         fig, axes = plt.subplots(
-            1, n_classes, figsize=(5 * n_classes, 5)
+            2, 2, figsize=(14, 12)
         )
+        axes = axes.flatten()
 
         if n_classes == 1:
             axes = [axes]
@@ -959,7 +938,7 @@ class ReportGenerator:
             ax.set_ylabel("Count")
             ax.set_title(f"{cls} Direction\n"
                          f"(flagged cases, n={len(values):,})")
-            ax.legend(fontsize=8)
+            ax.legend(fontsize=16)
             ax.set_xlim(-1, 1)
 
         fig.suptitle(
@@ -969,18 +948,10 @@ class ReportGenerator:
             fontsize=11, y=1.02
         )
 
-        if self.config.is_phase_1():
-            fig.text(
-                0.5, -0.04,
-                "PRELIMINARY RESEARCH OUTPUT — "
-                "Not for clinical decision making",
-                ha="center", fontsize=8,
-                color="red", style="italic"
-            )
 
         plt.tight_layout()
         filepath = self.output_dir / filename
-        plt.savefig(filepath, dpi=150, bbox_inches="tight")
+        plt.savefig(filepath, dpi=720, bbox_inches="tight")
         plt.close()
         self._log(f"  Saved: {filename}")
         return filepath
@@ -1015,7 +986,7 @@ class ReportGenerator:
         colours = [ACTION_COLOURS[a] for a in actions]
         total = sum(values)
 
-        fig, axes = plt.subplots(1, 2, figsize=(13, 5))
+        fig, axes = plt.subplots(1, 2, figsize=(14, 8))
         fig.suptitle(
             f"Layer C Action Distribution (n={total:,})\n"
             f"Ref: {self.reference_model_id} | "
@@ -1059,24 +1030,16 @@ class ReportGenerator:
                 bar.get_x() + bar.get_width() / 2,
                 bar.get_height() + 2,
                 f"{val:,}\n({val/total*100:.1f}%)",
-                ha="center", va="bottom", fontsize=9
+                ha="center", va="bottom", fontsize=14
             )
         ax2.set_ylabel("Case Count")
         ax2.set_title("Counts")
         ax2.set_ylim(0, max(values) * 1.2)
 
-        if self.config.is_phase_1():
-            fig.text(
-                0.5, -0.04,
-                "PRELIMINARY RESEARCH OUTPUT — "
-                "Not for clinical decision making",
-                ha="center", fontsize=8,
-                color="red", style="italic"
-            )
 
         plt.tight_layout()
         filepath = self.output_dir / filename
-        plt.savefig(filepath, dpi=150, bbox_inches="tight")
+        plt.savefig(filepath, dpi=720, bbox_inches="tight")
         plt.close()
         self._log(f"  Saved: {filename}")
         return filepath
