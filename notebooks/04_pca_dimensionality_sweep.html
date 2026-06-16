@@ -7800,7 +7800,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [12]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Cell 1 — Imports and setup</span>
@@ -7840,7 +7840,7 @@ a.anchor-link {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [13]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Cell 2 — Load data and reference model</span>
@@ -7916,7 +7916,7 @@ Test embeddings: (968, 2048)
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [14]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Cell 3 — PCA dimensionality sweep</span>
@@ -8014,7 +8014,7 @@ PCA-32: explained variance = 99.9565%
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [15]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Cell 4 — PCA sweep visualisation</span>
@@ -8097,17 +8097,21 @@ PCA-32: explained variance = 99.9565%
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [16]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># ── Paper-Ready Figures ─────────────────────────────────────</span>
-
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">pathlib</span><span class="w"> </span><span class="kn">import</span> <span class="n">Path</span>
 
 <span class="n">OUTPUTS_DIR</span> <span class="o">=</span> <span class="sa">r</span><span class="s1">'C:\Users\Ajant\Documents\OCT_EWS\data\outputs'</span>
 <span class="n">paper_fig_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">OUTPUTS_DIR</span><span class="p">)</span> <span class="o">/</span> <span class="s2">"paper_figures"</span>
 <span class="n">paper_fig_dir</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Save settings for all paper figures: 720 dpi TIFF, LZW-compressed to keep files small</span>
+<span class="n">SAVE_KW</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">dpi</span><span class="o">=</span><span class="mi">720</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">'tiff'</span><span class="p">,</span>
+               <span class="n">pil_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s1">'compression'</span><span class="p">:</span> <span class="s1">'tiff_lzw'</span><span class="p">},</span>
+               <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">'tight'</span><span class="p">)</span>
 
 <span class="n">DEFAULT_REGULARISATION</span> <span class="o">=</span> <span class="mf">1e-6</span>
 <span class="n">panel_letter</span> <span class="o">=</span> <span class="p">{</span><span class="mi">2048</span><span class="p">:</span> <span class="s1">'a'</span><span class="p">,</span> <span class="mi">768</span><span class="p">:</span> <span class="s1">'b'</span><span class="p">,</span> <span class="mi">256</span><span class="p">:</span> <span class="s1">'c'</span><span class="p">,</span> <span class="mi">128</span><span class="p">:</span> <span class="s1">'d'</span><span class="p">,</span> <span class="mi">64</span><span class="p">:</span> <span class="s1">'e'</span><span class="p">,</span> <span class="mi">32</span><span class="p">:</span> <span class="s1">'f'</span><span class="p">}</span>
@@ -8144,10 +8148,10 @@ PCA-32: explained variance = 99.9565%
                  <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">'bold'</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-    <span class="n">out_path</span> <span class="o">=</span> <span class="n">paper_fig_dir</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">"fig5</span><span class="si">{</span><span class="n">panel_letter</span><span class="p">[</span><span class="n">n_dims</span><span class="p">]</span><span class="si">}</span><span class="s2">_pca</span><span class="si">{</span><span class="n">n_dims</span><span class="si">}</span><span class="s2">_sweep.png"</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">out_path</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">'tight'</span><span class="p">)</span>
+    <span class="n">out_path</span> <span class="o">=</span> <span class="n">paper_fig_dir</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">"fig5</span><span class="si">{</span><span class="n">panel_letter</span><span class="p">[</span><span class="n">n_dims</span><span class="p">]</span><span class="si">}</span><span class="s2">_pca</span><span class="si">{</span><span class="n">n_dims</span><span class="si">}</span><span class="s2">_sweep.tiff"</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">out_path</span><span class="p">),</span> <span class="o">**</span><span class="n">SAVE_KW</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Saved → </span><span class="si">{</span><span class="n">out_path</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Saved </span><span class="se">\u2192</span><span class="s2"> </span><span class="si">{</span><span class="n">out_path</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -8166,7 +8170,7 @@ PCA-32: explained variance = 99.9565%
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Saved → fig5a_pca2048_sweep.png
+<pre>Saved → fig5a_pca2048_sweep.tiff
 </pre>
 </div>
 </div>
@@ -8179,7 +8183,7 @@ PCA-32: explained variance = 99.9565%
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Saved → fig5b_pca768_sweep.png
+<pre>Saved → fig5b_pca768_sweep.tiff
 </pre>
 </div>
 </div>
@@ -8192,7 +8196,7 @@ PCA-32: explained variance = 99.9565%
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Saved → fig5c_pca256_sweep.png
+<pre>Saved → fig5c_pca256_sweep.tiff
 </pre>
 </div>
 </div>
@@ -8205,7 +8209,7 @@ PCA-32: explained variance = 99.9565%
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Saved → fig5d_pca128_sweep.png
+<pre>Saved → fig5d_pca128_sweep.tiff
 </pre>
 </div>
 </div>
@@ -8218,7 +8222,7 @@ PCA-32: explained variance = 99.9565%
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Saved → fig5e_pca64_sweep.png
+<pre>Saved → fig5e_pca64_sweep.tiff
 </pre>
 </div>
 </div>
@@ -8231,7 +8235,7 @@ PCA-32: explained variance = 99.9565%
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Saved → fig5f_pca32_sweep.png
+<pre>Saved → fig5f_pca32_sweep.tiff
 </pre>
 </div>
 </div>
@@ -8242,7 +8246,7 @@ PCA-32: explained variance = 99.9565%
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [17]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="c1"># Cell 5 — Save results and complete notebook</span>

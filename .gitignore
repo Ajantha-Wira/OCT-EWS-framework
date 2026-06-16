@@ -152,3 +152,4 @@ data/Paper 3/
 *.tiff
 data/Dataset_links_Paper_3.docx
 data/Dataset_links_Paper_3.pdf
+!data/outputs/paper_figures/*.tiff

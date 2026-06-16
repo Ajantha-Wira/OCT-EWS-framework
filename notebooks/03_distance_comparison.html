@@ -8424,6 +8424,11 @@ Training normal cases used for threshold derivation: 19275
 <span class="n">paper_fig_dir</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">OUTPUTS_DIR</span><span class="p">)</span> <span class="o">/</span> <span class="s2">"paper_figures"</span>
 <span class="n">paper_fig_dir</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
+<span class="c1"># Save settings for all paper figures: 720 dpi TIFF, LZW-compressed to keep files small</span>
+<span class="n">SAVE_KW</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">dpi</span><span class="o">=</span><span class="mi">720</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="s1">'tiff'</span><span class="p">,</span>
+               <span class="n">pil_kwargs</span><span class="o">=</span><span class="p">{</span><span class="s1">'compression'</span><span class="p">:</span> <span class="s1">'tiff_lzw'</span><span class="p">},</span>
+               <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">'tight'</span><span class="p">)</span>
+
 <span class="n">metric_configs</span> <span class="o">=</span> <span class="p">[</span>
     <span class="p">(</span><span class="s2">"mahalanobis"</span><span class="p">,</span> <span class="s2">"Mahalanobis Distance"</span><span class="p">,</span> <span class="n">mahal_scores</span><span class="p">,</span> <span class="n">thresh_mahal</span><span class="p">),</span>
     <span class="p">(</span><span class="s2">"euclidean"</span><span class="p">,</span>   <span class="s2">"Euclidean Distance"</span><span class="p">,</span>   <span class="n">eucl_scores</span><span class="p">,</span>  <span class="n">thresh_eucl</span><span class="p">),</span>
@@ -8441,14 +8446,14 @@ Training normal cases used for threshold derivation: 19275
                <span class="n">linewidth</span><span class="o">=</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">'90th pct threshold'</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">'Score'</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">'Density'</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">"NORMAL vs Disease Separation — </span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s2">"NORMAL vs Disease Separation </span><span class="se">\u2014</span><span class="s2"> </span><span class="si">{</span><span class="n">label</span><span class="si">}</span><span class="s2">"</span><span class="p">,</span>
                  <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">'bold'</span><span class="p">)</span>
     <span class="n">ax</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
-    <span class="n">out_path</span> <span class="o">=</span> <span class="n">paper_fig_dir</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">"fig2</span><span class="si">{</span><span class="n">panel_letter</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">_separation.png"</span>
-    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">out_path</span><span class="p">),</span> <span class="n">dpi</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span> <span class="n">bbox_inches</span><span class="o">=</span><span class="s1">'tight'</span><span class="p">)</span>
+    <span class="n">out_path</span> <span class="o">=</span> <span class="n">paper_fig_dir</span> <span class="o">/</span> <span class="sa">f</span><span class="s2">"fig2</span><span class="si">{</span><span class="n">panel_letter</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="si">}</span><span class="s2">_</span><span class="si">{</span><span class="n">key</span><span class="si">}</span><span class="s2">_separation.tiff"</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">out_path</span><span class="p">),</span> <span class="o">**</span><span class="n">SAVE_KW</span><span class="p">)</span>
     <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Saved → </span><span class="si">{</span><span class="n">out_path</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Saved </span><span class="se">\u2192</span><span class="s2"> </span><span class="si">{</span><span class="n">out_path</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -8467,7 +8472,7 @@ Training normal cases used for threshold derivation: 19275
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Saved → fig2a_mahalanobis_separation.png
+<pre>Saved → fig2a_mahalanobis_separation.tiff
 </pre>
 </div>
 </div>
@@ -8480,7 +8485,7 @@ Training normal cases used for threshold derivation: 19275
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Saved → fig2b_euclidean_separation.png
+<pre>Saved → fig2b_euclidean_separation.tiff
 </pre>
 </div>
 </div>
@@ -8493,7 +8498,7 @@ Training normal cases used for threshold derivation: 19275
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Saved → fig2c_cosine_separation.png
+<pre>Saved → fig2c_cosine_separation.tiff
 </pre>
 </div>
 </div>
