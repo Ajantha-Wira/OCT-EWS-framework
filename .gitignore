@@ -132,14 +132,15 @@ marimo/_lsp/
 __marimo__/
 
 # OCT EWS — local data directories (too large for GitHub)
-data/raw/
-data/processed/
+raw/
+processed/
 
-# Paper 3 experiment folders — empty, for future work
-data/3_Crop_Domain/
-data/3_Industrial_Domain/
-data/3_Solar_Domain/
-data/Paper 3/
+# Paper 3 experiment folders — for future work, not part of this repo's content yet
+3_Crop_Domain/
+3_Industrial_Domain/
+3_Solar_Domain/
+3_Maintenance_Domain/
+Paper 3/
 
 # Large binary formats — never commit
 *.npy
@@ -150,6 +151,12 @@ data/Paper 3/
 *.bmp
 *.tif
 *.tiff
-data/Dataset_links_Paper_3.docx
-data/Dataset_links_Paper_3.pdf
+Dataset_links_Paper_3.docx
+Dataset_links_Paper_3.pdf
 !data/outputs/paper_figures/*.tiff
+
+# Model checkpoints and large binary weights — never commit (hosted separately, see README)
+*.pth
+*.ckpt
+*.safetensors
+Checkpoints/
