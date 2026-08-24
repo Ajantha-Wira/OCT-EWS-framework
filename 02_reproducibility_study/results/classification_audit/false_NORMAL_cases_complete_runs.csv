@@ -1,0 +1,1 @@
+model,serial,seed,epoch,checkpoint_mode,checkpoint_filename,complete_run,sample_index,image_id,image_path,true_label_index,true_label,predicted_label_index,predicted_label,prob_CNV,prob_DME,prob_DRUSEN,prob_NORMAL,logit_CNV,logit_DME,logit_DRUSEN,logit_NORMAL,confidence,entropy,normalized_entropy,classification_margin,energy_T1,is_correct,predicted_NORMAL,safe_NORMAL,false_NORMAL

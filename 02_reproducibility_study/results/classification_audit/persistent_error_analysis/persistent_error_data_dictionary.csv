@@ -1,0 +1,7 @@
+term,definition
+independent completed run,complete_run is true and duplicate serial 4 is excluded
+persistent error,an image misclassified by at least one independent completed run
+all_architectures_failed,at least one error occurred in each of 4 architectures
+high-confidence error,incorrect prediction with confidence >= 0.90
+matched correct control,same true class and correct in all 16 independent runs
+embedding manifest,hard-error images plus deterministic stable class-matched controls

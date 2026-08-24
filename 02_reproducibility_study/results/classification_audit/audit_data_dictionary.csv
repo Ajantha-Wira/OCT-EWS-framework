@@ -1,0 +1,10 @@
+field,definition,range_or_type
+safe_NORMAL,Ground-truth NORMAL and predicted NORMAL,boolean
+false_NORMAL,Ground-truth CNV/DME/DRUSEN but predicted NORMAL,boolean
+confidence,Maximum softmax probability; larger means more confident,0..1
+entropy,Predictive entropy using natural logarithms; larger means more uncertain,0..ln(4)
+normalized_entropy,Entropy divided by ln(4),0..1
+classification_margin,Largest minus second-largest class probability; smaller means more uncertain,0..1
+energy_T1,Negative log-sum-exp of logits at temperature 1; larger is commonly treated as more OOD-like,real
+image_id,Class-relative test image path; stable identifier within this dataset,text
+complete_run,Epoch >= 30,boolean
