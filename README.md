@@ -4,6 +4,16 @@ An embedding-based post-classification safety layer for stratifying NORMAL predi
 
 Most classifier evaluation stops at the predicted label. This project asks a different question: for scans a classifier labels NORMAL, where does each one actually sit within the model's learned NORMAL representation, and does that position mean anything reproducible across different models. The repository is organised around two related pieces of work addressing this, in sequence.
 
+## Origin of this work
+
+The classifiers and original classification study behind both pieces of work in this repository come from an earlier MSc dissertation:
+
+> Wirasinghe, A.I., 2026. *Attention Models for Deep Convolutional Neural Network for Macular Disease Classification: Development and Evaluation of an Embedding-Based Early Warning Detection System for Clinical Quality Control.* MSc dissertation, Keele University, Staffordshire. https://doi.org/10.21252/zb0m-aq85
+
+Dissertation code and the original classifier training pipeline: [MSc_Dissertation_OCT_Classification_EWS](https://github.com/Ajantha-Wira/MSc_Dissertation_OCT_Classification_EWS)
+
+The two folders in this repository extend that original study:
+
 - **`01_ews_framework/`** — the original three-layer EWS implementation and its local, single-model experiments.
 - **`02_reproducibility_study/`** — a cross-architecture reproducibility investigation of the same underlying geometry, built directly on questions the first piece of work raised but did not test.
 
